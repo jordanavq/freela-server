@@ -1,4 +1,8 @@
+//configurações
 require("dotenv").config();
+require("./config/db.config");
+
+//pacotes
 const { request } = require("express");
 const express = require("express");
 const cors = require("cors");
@@ -8,9 +12,6 @@ const app = express();
 //middlewares gerais
 app.use(express.json());
 app.use(cors());
-
-//connect to database
-require("./config/db.config");
 
 app.post("/cadastro/empresa", (request, response) => {
   //criar uma nova empresa no DB
