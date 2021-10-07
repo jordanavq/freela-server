@@ -14,10 +14,15 @@ app.use(express.json());
 app.use(cors());
 
 //importar rotas
-const authRoutes = require("./routes/auth.routes");
-const candidatesRoutes = require("./routes/candidates.routes");
-const companiesRoutes = require("./routes/companies.routes");
-const vacanciesRoutes = require("./routes/vacancies.routes");
+const authCandidatesRoutes = require("./routes/auth.candidates.routes");
+const authCompaniesRoutes = require("./routes/auth.companies.routes");
+//const candidatesRoutes = require("./routes/candidates.routes");
+//const companiesRoutes = require("./routes/companies.routes");
+//const vacanciesRoutes = require("./routes/vacancies.routes");
+
+//rotas
+app.use('/cadastro/empresa', authCompaniesRoutes);
+app.use('/cadastro/candidato', authCandidatesRoutes);
 
 app.post("/cadastro/empresa", (request, response) => {
   //criar uma nova empresa no DB
