@@ -13,6 +13,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+//importar rotas
+const authRoutes = require("./routes/auth.routes");
+const candidatesRoutes = require("./routes/candidates.routes");
+const companiesRoutes = require("./routes/companies.routes");
+const vacanciesRoutes = require("./routes/vacancies.routes");
+
 app.post("/cadastro/empresa", (request, response) => {
   //criar uma nova empresa no DB
   //retornar json da empresa criada
