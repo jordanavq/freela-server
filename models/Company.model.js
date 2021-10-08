@@ -9,3 +9,5 @@ const empresaSchema = new Schema({
     timestamps:true,
     }
 ); 
+
+module.exports = model("UserCompany", empresaSchema);

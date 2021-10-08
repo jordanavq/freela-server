@@ -1,10 +1,12 @@
 const { Router } = require("express");
 
+const UserCompany = require("../models/Company.model");
+
 const router = Router();
 
 //signup-cadastro
 
-//router.post()
+//router.post("/empresa/cadastro", async )
 
 module.exports = router;
 
