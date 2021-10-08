@@ -1,4 +1,4 @@
-const {Schema, model} = require('mongoose');
+ const {Schema, model} = require('mongoose');
 
 const empresaSchema = new Schema({
     empresa: {type: String, required: true},
@@ -8,4 +8,4 @@ const empresaSchema = new Schema({
     {
     timestamps:true,
     }
-);
+); 

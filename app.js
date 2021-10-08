@@ -9,6 +9,9 @@ const cors = require("cors");
 
 const app = express();
 
+//importar middlewares
+const authMiddleware = require("./middlewares/auth.middleware");
+
 //middlewares gerais
 app.use(express.json());
 app.use(cors());
@@ -20,14 +23,16 @@ const authCompaniesRoutes = require("./routes/auth.companies.routes");
 //const companiesRoutes = require("./routes/companies.routes");
 //const vacanciesRoutes = require("./routes/vacancies.routes");
 
-//rotas
-app.use('/cadastro/empresa', authCompaniesRoutes);
-app.use('/cadastro/candidato', authCandidatesRoutes);
+//rotas públicas - todos os caminhos que o usuário pode percorrer sem estar logado
+app.use('/', authCompaniesRoutes);
+app.use('/', authCandidatesRoutes);
 
-app.post("/cadastro/empresa", (request, response) => {
-  //criar uma nova empresa no DB
-  //retornar json da empresa criada
-});
+//middlaware de autenticação
+app.use(authMiddleware);
+
+//rotas privadas (criar)
+
+
 
 app.listen(process.env.PORT, () =>
   console.log(`Server listen on Port ${process.env.PORT}`)
