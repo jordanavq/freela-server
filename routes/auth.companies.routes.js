@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const UserCompany = require("../models/Company.model");
 
@@ -33,8 +34,40 @@ router.post("/empresa/cadastro", async (req, res) => {
   }
 });
 
-//router.post("/empresa/cadastro", async )
+
+//login
+
+router.post("/entrar", async (req, res) =>{
+ 
+  const {email,senha} = req.body;
+  try {
+    if ( !email || !senha) {
+      throw new Error("Missing email or senha");
+  } 
+  const user = await UserCompany.findOne({email});
+  if (!user){
+    throw new Error("Wrong email or senha");
+  }
+
+  const validation = bcrypt.compareSync(senha, user.passwordHash);
+  if (validation) {
+    const payload = {
+      id: user._id,
+      email: user.email,
+      }
+      const token = jwt.sign(payload, process.env.SECRET_JWT, {
+        expiresIn: "1day", //perguntar para que que serve esse 1day
+      }) 
+      res.status(200).json({user:payload, token});
+      return;
+  }
+  throw new Error("Wrong email or senha");
+}
+  catch (error) {
+    res.status(500).json({message: "Error trying to login", error: error.message});
+  }
+
+})
+
 
 module.exports = router;
-
-//criar rota de login e signup aqui
