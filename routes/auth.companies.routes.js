@@ -22,7 +22,7 @@ router.post("/empresa/cadastro", async (req, res) => {
     await UserCompany.create({
       empresa,
       email,
-      senha,
+      senha: passwordHash,
     });
 
     res.status(201).json({ message: `Created user: ${email}` });
