@@ -48,7 +48,7 @@ router.post("/empresa/entrar", async (req, res) => {
     }
 
     const validation = bcrypt.compareSync(senha, user.senha);
-    console.log(validation);
+
     if (validation) {
       const payload = {
         id: user._id,

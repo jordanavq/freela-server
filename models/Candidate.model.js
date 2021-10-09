@@ -9,7 +9,7 @@ const candidateSchema = new Schema(
     bairro_de_residencia: { type: String },
     cidade: { type: String, require: true },
     estado: { type: String, require: true },
-    possui_meio_de_transporte_proprio: { type: Bollean },
+    possui_meio_de_transporte_proprio: { type: Boolean },
     celular: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     senha: { type: String, required: true },
