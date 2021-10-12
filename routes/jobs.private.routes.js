@@ -18,7 +18,7 @@ router.post("/cadastro", async (req, res) => {
   }
 });
 
-//Atualizar uma vaga DUVIDA!!!
+//Atualizar vaga
 router.put("/editar/:vagaId", async (req, res) => {
   const { vagaId } = req.params;
 

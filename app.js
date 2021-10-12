@@ -21,6 +21,9 @@ const authCandidatesRoutes = require("./routes/auth.candidates.routes");
 const authCompaniesRoutes = require("./routes/auth.companies.routes");
 const jobsRoutes = require("./routes/jobs.private.routes");
 const jobsPublicRoutes = require("./routes/jobs.public.routes");
+const candidatesPublicRoutes = require("./routes/candidates.public.routes");
+const candidatesPrivateRoutes = require("./routes/candidates.private.routes");
+
 
 //const candidatesRoutes = require("./routes/candidates.routes");
 //const companiesRoutes = require("./routes/companies.routes");
@@ -29,12 +32,14 @@ const jobsPublicRoutes = require("./routes/jobs.public.routes");
 app.use("/", authCompaniesRoutes);
 app.use("/", authCandidatesRoutes);
 app.use("/vagas", jobsPublicRoutes);
+app.use("/candidatos", candidatesPublicRoutes);
 
 //middlaware de autenticação
 app.use(authMiddleware);
 
 //rotas privadas
 app.use("/vaga", jobsRoutes);
+app.use("/candidato", candidatesPrivateRoutes);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server listen on Port ${process.env.PORT}`)
