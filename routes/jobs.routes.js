@@ -9,15 +9,12 @@ const router = Router();
 //Criar nova vaga
 
 router.post("/cadastro", async (req, res) => {
-  //checar se o caminho esta correto, ":idempresa"
   const { id } = req.user;
   try {
     const job = await UserJob.create({ ...req.body, empresaId: id });
     res.status(201).json(job);
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error trying to create a vacancy", error });
+    res.status(500).json({ message: "Error trying to create a job", error });
   }
 });
 
