@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const vacancySchema = new Schema(
+const jobSchema = new Schema(
   {
     data: { type: String, required: true },
     horario: { type: String, required: true },
@@ -20,4 +20,4 @@ const vacancySchema = new Schema(
   }
 );
 
-module.exports = model("UserVacancy", vacancySchema);
+module.exports = model("JobUser", jobSchema);
