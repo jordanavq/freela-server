@@ -14,9 +14,7 @@ router.post("/cadastro", async (req, res) => {
     const job = await UserJob.create({ ...req.body, empresaId: id });
     res.status(201).json(job);
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error trying to create a vacancy", error });
+    res.status(500).json({ message: "Error trying to create a job", error });
   }
 });
 
