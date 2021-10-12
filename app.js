@@ -34,7 +34,7 @@ app.use("/vagas", jobsPublicRoutes);
 app.use(authMiddleware);
 
 //rotas privadas (criar)
-app.use("/vagas", jobsRoutes);
+app.use("/vaga", jobsRoutes);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server listen on Port ${process.env.PORT}`)
