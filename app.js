@@ -19,7 +19,7 @@ app.use(cors());
 //importar rotas
 const authCandidatesRoutes = require("./routes/auth.candidates.routes");
 const authCompaniesRoutes = require("./routes/auth.companies.routes");
-const jobsRoutes = require("./routes/jobs.routes");
+const jobsRoutes = require("./routes/jobs.private.routes");
 const jobsPublicRoutes = require("./routes/jobs.public.routes");
 
 //const candidatesRoutes = require("./routes/candidates.routes");
@@ -33,7 +33,7 @@ app.use("/vagas", jobsPublicRoutes);
 //middlaware de autenticação
 app.use(authMiddleware);
 
-//rotas privadas (criar)
+//rotas privadas
 app.use("/vaga", jobsRoutes);
 
 app.listen(process.env.PORT, () =>
