@@ -20,4 +20,4 @@ const jobSchema = new Schema(
   }
 );
 
-module.exports = model("JobUser", jobSchema);
+module.exports = model("UserJob", jobSchema);
