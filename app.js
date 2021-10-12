@@ -20,6 +20,7 @@ app.use(cors());
 const authCandidatesRoutes = require("./routes/auth.candidates.routes");
 const authCompaniesRoutes = require("./routes/auth.companies.routes");
 const jobsRoutes = require("./routes/jobs.routes");
+const jobsPublicRoutes = require("./routes/jobs.public.routes");
 
 //const candidatesRoutes = require("./routes/candidates.routes");
 //const companiesRoutes = require("./routes/companies.routes");
@@ -27,12 +28,13 @@ const jobsRoutes = require("./routes/jobs.routes");
 //rotas públicas - todos os caminhos que o usuário pode percorrer sem estar logado
 app.use("/", authCompaniesRoutes);
 app.use("/", authCandidatesRoutes);
+app.use("/vagas", jobsPublicRoutes);
 
 //middlaware de autenticação
 app.use(authMiddleware);
 
 //rotas privadas (criar)
-app.use("/vaga", jobsRoutes);
+app.use("/vagas", jobsRoutes);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server listen on Port ${process.env.PORT}`)
