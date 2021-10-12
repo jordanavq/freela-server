@@ -14,8 +14,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-//buscar um vaga especifica
-router.get("/:candidateId", async (req, res) => {
+//buscar um candidato especifico
+router.get("/:candidatoId", async (req, res) => {
   const { candidateId } = req.params;
 
   try {

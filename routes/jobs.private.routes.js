@@ -39,7 +39,7 @@ router.delete("/deletar/:vagaId", async (req, res) => {
     await UserJob.findByIdAndDelete(vagaId);
     res.status(200).json({ message: "Job deleted" });
   } catch (error) {
-    res.status(500).json({ message: "Error tryning to delete a job", error });
+    res.status(500).json({ message: "Error trying to delete a job", error });
   }
 });
 
