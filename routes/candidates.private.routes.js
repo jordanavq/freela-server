@@ -40,4 +40,7 @@ router.delete("/deletar/:candidateId", async (req, res) => {
   }
 });
 
+//Buscar vagas que o candidato está inscrito
+router.get("/candidaturas/candidatoId", async(req,res) => )
+
 module.exports = router;

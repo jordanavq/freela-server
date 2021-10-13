@@ -43,7 +43,20 @@ router.delete("/deletar/:vagaId", async (req, res) => {
   }
 });
 
-//Criar nova candidatura
-router.post("/candidatura/vagaId", async (req,res) => )
+//Buscar vagas que o candidato está inscrito
+router.get("/candidaturas/candidatoId", async (req, res) => {
+  const { candidatoId } = req.params;
+  try {
+    const applications = await UserJob.findByIdandUpdate(candidatoId);
+    res.status(200).json(applications);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error trying to get all applicantions", error });
+  }
+});
+
+//Buscar dentro da vaga publicada quais candidatos estão inscritos
+router.get("/");
 
 module.exports = router;
