@@ -44,7 +44,7 @@ router.delete("/deletar/:vagaId", async (req, res) => {
 });
 
 //Buscar vagas que o candidato está inscrito
-router.get("/candidaturas/candidatoId", async (req, res) => {
+router.get("/:candidatoId", async (req, res) => {
   const { candidatoId } = req.params;
   try {
     const applications = await UserJob.findByIdandUpdate(candidatoId);
@@ -57,6 +57,6 @@ router.get("/candidaturas/candidatoId", async (req, res) => {
 });
 
 //Buscar dentro da vaga publicada quais candidatos estão inscritos
-router.get("/");
+//router.get("/empresaId");
 
 module.exports = router;
