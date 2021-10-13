@@ -88,7 +88,7 @@ router.get("/candidaturas/:empresaId", async (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .json({ message: "Error trying to get all applicantions", error });
+      .json({ message: "Error trying to get all candidates", error });
   }
 });
 
