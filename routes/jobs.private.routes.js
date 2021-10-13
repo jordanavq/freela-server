@@ -44,6 +44,23 @@ router.delete("/deletar/:vagaId", async (req, res) => {
 });
 
 //Criar nova candidatura
-router.post("/candidatura/vagaId", async (req,res) => )
+
+router.post("/candidatura/:vagaId", async (req,res) => {
+  const { vagaId } = req.params;
+  try {
+    //projeção de objeto
+    // const job = await UserJob.findById(vagaId, { funcao:1, cidade:1, estado:1 , _id:0 });
+     const job = await UserJob.findById(vagaId);
+    job.candidatosId.push(req.user.id);
+    job.save();
+    res.status(200).json({message:"Application sent"})
+  } catch (error) {
+    res.status(500).json({ message: "Error trying to sent a application", error });
+
+  }
+} )
+
+
+
 
 module.exports = router;
