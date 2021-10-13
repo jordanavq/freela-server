@@ -10,16 +10,18 @@ router.get("/", async (req, res) => {
     const candidates = await Candidate.find();
     res.status(200).json(candidates);
   } catch (error) {
-    res.status(500).json({ message: "Error trying to get all candidates", error });
+    res
+      .status(500)
+      .json({ message: "Error trying to get all candidates", error });
   }
 });
 
 //buscar um candidato especifico
 router.get("/:candidatoId", async (req, res) => {
-  const { candidateId } = req.params;
+  const { candidatoId } = req.params;
 
   try {
-    const candidate = await Candidate.findById(candidateId);
+    const candidate = await Candidate.findById(candidatoId);
     res.status(200).json(candidate);
   } catch (error) {
     res
