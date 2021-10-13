@@ -43,4 +43,7 @@ router.delete("/deletar/:vagaId", async (req, res) => {
   }
 });
 
+//Criar nova candidatura
+router.post("/candidatura/vagaId", async (req,res) => )
+
 module.exports = router;
