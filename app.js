@@ -24,7 +24,6 @@ const jobsPublicRoutes = require("./routes/jobs.public.routes");
 const candidatesPublicRoutes = require("./routes/candidates.public.routes");
 const candidatesPrivateRoutes = require("./routes/candidates.private.routes");
 
-
 //const candidatesRoutes = require("./routes/candidates.routes");
 //const companiesRoutes = require("./routes/companies.routes");
 

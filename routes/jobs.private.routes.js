@@ -77,9 +77,9 @@ router.get("/:candidatoId", async (req, res) => {
 });
 
 //Buscar dentro da vaga publicada quais candidatos estão inscritos
-router.get("/banana/:empresaId", async (req, res) => {
+router.get("/candidaturas/:empresaId", async (req, res) => {
   const { empresaId } = req.params;
-  console.log(empresaId);
+
   try {
     const applications = await UserJob.find({
       empresaId: empresaId,
