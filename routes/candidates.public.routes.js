@@ -7,7 +7,7 @@ const router = Router();
 //buscar todos os candidatos
 router.get("/", async (req, res) => {
   try {
-    const candidates = await Candidate.find();
+    const candidates = await Candidate.find().select({ senha: 0 });
     res.status(200).json(candidates);
   } catch (error) {
     res
