@@ -67,7 +67,7 @@ router.get("/:candidatoId", async (req, res) => {
   try {
     const applications = await UserJob.find({
       candidatosId: { $in: candidatoId },
-    });
+    }).populate("empresaId", "empresa");
     res.status(200).json(applications);
   } catch (error) {
     res
@@ -83,7 +83,18 @@ router.get("/candidaturas/:empresaId", async (req, res) => {
   try {
     const applications = await UserJob.find({
       empresaId: empresaId,
-    });
+    }).populate("candidatosId", [
+      "nome_e_sobrenome",
+      "funcao",
+      "idade",
+      "sexo",
+      "bairro_de_residencia",
+      "cidade",
+      "estado",
+      "possui_meio_de_transporte_proprio",
+      "celular",
+      "email",
+    ]);
     res.status(200).json(applications);
   } catch (error) {
     res
