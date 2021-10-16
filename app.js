@@ -23,6 +23,7 @@ const jobsRoutes = require("./routes/jobs.private.routes");
 const jobsPublicRoutes = require("./routes/jobs.public.routes");
 const candidatesPublicRoutes = require("./routes/candidates.public.routes");
 const candidatesPrivateRoutes = require("./routes/candidates.private.routes");
+const companiesRoutes = require("./routes/companies.routes");
 
 //const candidatesRoutes = require("./routes/candidates.routes");
 //const companiesRoutes = require("./routes/companies.routes");
@@ -32,6 +33,7 @@ app.use("/", authCompaniesRoutes);
 app.use("/", authCandidatesRoutes);
 app.use("/vagas", jobsPublicRoutes);
 app.use("/candidatos", candidatesPublicRoutes);
+app.use("/empresas", companiesRoutes);
 
 //middlaware de autenticação
 app.use(authMiddleware);
