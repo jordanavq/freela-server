@@ -5,7 +5,7 @@ const candidateSchema = new Schema(
     nome_e_sobrenome: { type: String, required: true },
     funcao: { type: String, required: true },
     idade: { type: Number, required: true },
-    sexo: { type: String, required: true },
+    sexo: { type: String },
     bairro_de_residencia: { type: String },
     cidade: { type: String, required: true },
     estado: { type: String, required: true },
