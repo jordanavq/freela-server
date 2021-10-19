@@ -7,7 +7,7 @@ const router = Router();
 //buscar todas as vagas
 router.get("/", async (req, res) => {
   try {
-    const jobs = await Job.find();
+    const jobs = await Job.find().populate("empresaId");
     res.status(200).json(jobs);
   } catch (error) {
     res.status(500).json({ message: "Error trying to get all jobs", error });
