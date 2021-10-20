@@ -19,7 +19,7 @@ router.get("/:vagaId", async (req, res) => {
   const { vagaId } = req.params;
 
   try {
-    const job = await Job.findById(vagaId);
+    const job = await Job.findById(vagaId).populate("empresaId");
     res.status(200).json(job);
   } catch (error) {
     res
