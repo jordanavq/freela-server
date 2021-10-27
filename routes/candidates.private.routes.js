@@ -8,12 +8,12 @@ const router = Router();
 
 //Atualizar cadastro
 
-router.put("/editar/:candidateId", async (req, res) => {
-  const { candidateId } = req.params;
+router.put("/editar/:candidatoId", async (req, res) => {
+  const { candidatoId } = req.params;
 
   try {
     const candidate = await UserCandidate.findByIdAndUpdate(
-      candidateId,
+      candidatoId,
       req.body,
       {
         new: true,
