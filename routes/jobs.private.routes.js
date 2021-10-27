@@ -77,18 +77,16 @@ router.get("/:candidatoId", async (req, res) => {
 });
 
 //Buscar as vagas da empresa
-router.get("/empresa/:empresaId", async (req,res) =>{
+router.get("/empresa/:empresaId", async (req, res) => {
   const { empresaId } = req.params;
   try {
     const jobs = await UserJob.find({
-      empresaId: { $in: empresaId }
-    })
+      empresaId: { $in: empresaId },
+    });
     res.status(200).json(jobs);
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error trying to get all jobs", error });
-  };
+    res.status(500).json({ message: "Error trying to get all jobs", error });
+  }
 });
 
 //Buscar dentro da vaga publicada quais candidatos estão inscritos
@@ -115,6 +113,18 @@ router.get("/candidaturas/:empresaId", async (req, res) => {
     res
       .status(500)
       .json({ message: "Error trying to get all candidates", error });
+  }
+});
+
+//buscar um vaga especifica com os candidatos
+router.get("/candidatos/:vagaId", async (req, res) => {
+  const { vagaId } = req.params;
+
+  try {
+    const job = await UserJob.findById(vagaId).populate("candidatosId");
+    res.status(200).json(job);
+  } catch (error) {
+    res.status(500).json({ message: "Error trying to get candidates", error });
   }
 });
 
