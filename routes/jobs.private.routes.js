@@ -90,7 +90,7 @@ router.get("/empresa/:empresaId", async (req, res) => {
 });
 
 //Buscar dentro da vaga publicada quais candidatos estão inscritos
-router.get("/candidaturas/:empresaId", async (req, res) => {
+/* router.get("/candidaturas/:empresaId", async (req, res) => {
   const { empresaId } = req.params;
 
   try {
@@ -114,7 +114,7 @@ router.get("/candidaturas/:empresaId", async (req, res) => {
       .status(500)
       .json({ message: "Error trying to get all candidates", error });
   }
-});
+}); */
 
 //buscar um vaga especifica com os candidatos
 router.get("/candidatos/:vagaId", async (req, res) => {
