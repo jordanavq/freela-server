@@ -43,7 +43,7 @@ router.delete("/deletar/:candidatoId", async (req, res) => {
 //buscar um candidato especifico
 router.get("/:candidatoId", async (req, res) => {
   const { candidatoId } = req.params;
-  console.log("------", candidatoId);
+  // console.log("------", candidatoId);
   try {
     const candidate = await UserCandidate.findById(candidatoId, { senha: 0 });
     res.status(200).json(candidate);
