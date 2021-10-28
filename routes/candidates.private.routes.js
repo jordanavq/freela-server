@@ -28,10 +28,10 @@ router.put("/editar/:candidatoId", async (req, res) => {
 });
 
 //Deletar um candidato
-router.delete("/deletar/:candidateId", async (req, res) => {
-  const { candidateId } = req.params;
+router.delete("/deletar/:candidatoId", async (req, res) => {
+  const { candidatoId } = req.params;
   try {
-    await UserCandidate.findByIdAndDelete(candidateId);
+    await UserCandidate.findByIdAndDelete(candidatoId);
     res.status(200).json({ message: "Profile deleted" });
   } catch (error) {
     res
