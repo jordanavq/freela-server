@@ -3,7 +3,9 @@
 (Project Module 3 Ironhack)
 
 Click [HERE](https://freela-app.herokuapp.com/) to see and enjoy _Freela App_
+
 Click [HERE](https://api-freela.herokuapp.com/) to access _Freela API_
+
 Click [HERE](https://github.com/jordanavq/freela-client) to see our front-end repository :octocat:
 
 ### Introduction
