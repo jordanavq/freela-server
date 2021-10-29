@@ -4,7 +4,7 @@ const Company = require("../models/Company.model");
 
 const router = Router();
 
-//buscar todos os candidatos
+//buscar todos as empresas
 router.get("/all", async (req, res) => {
   try {
     const companies = await Company.find();
@@ -16,7 +16,7 @@ router.get("/all", async (req, res) => {
   }
 });
 
-//buscar um candidato especifico
+//buscar uma cempresa específica
 router.get("/:empresaId", async (req, res) => {
   const { empresaId } = req.params;
 
