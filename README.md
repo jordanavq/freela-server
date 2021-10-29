@@ -19,7 +19,7 @@ Click [HERE](https://github.com/jordanavq/freela-client) to see our front-end re
 - Click [HERE](https://freela-app.herokuapp.com/) to open the website.
 - Now feel free to check out everything we've made available on the Freela.
 
-### ENDPOINTS
+## ENDPOINTS
 
 | Method | End Point                       | Payload                                                                                                                                                                                                                             | Response                               | Action                                                            |
 | ------ | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ----------------------------------------------------------------- |
